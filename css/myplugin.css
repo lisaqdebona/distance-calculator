@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #FFF;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+a, input, button {
+  transition: all ease 0.3s;
+}
+
+.mapOuterWrap {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+
+#map {
+  height: 300px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  display: none;
+}
+
+#distance {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+#distance p.h2 {
+  font-size: 25px;
+  font-weight: 600;
+}
+#distance .distanceInner {
+  border: 1px solid #CCC;
+  padding: 20px;
+  width: 100%;
+  float: left;
+  background: #f3f3f3;
+  margin: 20px 0;
+}
+#distance #msg .t2 {
+  font-size: 20px;
+  color: #d21010;
+}
+#distance #msg .response {
+  margin-top: 15px;
+  padding: 10px;
+  background: #fafff1;
+  border: 1px solid #d2e0b9;
+  text-align: center;
+  border-radius: 6px;
+}
+#distance #checkBtn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 25px;
+  color: #FFF;
+  background: #dc2727;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+@media screen and (max-width: 820px) {
+  #distance #checkBtn {
+    width: 100%;
+  }
+}
+#distance #checkBtn #spin {
+  display: none;
+  position: relative;
+  left: 10px;
+}
+#distance #checkBtn #spin.show {
+  display: inline-block !important;
+}
+
+#distance form {
+  width: 100%;
+  float: left;
+}
+#distance form .inputdiv input {
+  width: 100%;
+  height: 40px;
+  float: left;
+  border: 1px solid #000;
+  border-radius: 0;
+  -webkit-appearance: none;
+  outline: none;
+  padding: 5px;
+  font-size: 16px;
+}
+
+#distance .form-label {
+  display: block;
+  width: 100%;
+  float: left;
+}
+
+#distance #userloc {
+  width: 100%;
+  height: 40px;
+  float: left;
+  border: 1px solid #000;
+  border-radius: 0;
+  -webkit-appearance: none;
+  outline: none;
+  padding: 5px;
+  padding-right: 190px;
+  font-size: 16px;
+}
+@media screen and (max-width: 820px) {
+  #distance #userloc {
+    padding-right: 5px;
+  }
+}
+
+#distance .input-field {
+  display: block;
+  width: 100%;
+  float: left;
+  margin-bottom: 15px;
+}
+#distance .input-field input[disabled] {
+  border-color: #9c9b9b;
+  color: #9c9b9b;
+}
+@media screen and (max-width: 820px) {
+  #distance .input-field.dest2 .btndiv {
+    display: none;
+  }
+}
+
+#distance .inputfield {
+  width: 100%;
+  float: left;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+}
+
+#distance .inputfield .inputdiv {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+
+#distance .inputfield .btndiv {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  display: inline-block;
+  width: 185px;
+  height: 100%;
+  text-align: center;
+}
+#distance .inputfield .btndiv a {
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background: #1d2327;
+  color: #FFF;
+}
+#distance .inputfield .btndiv a:hover {
+  background: #4c5154;
+}
+@media screen and (max-width: 820px) {
+  #distance .inputfield .btndiv {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  #distance .inputfield .btndiv a {
+    padding: 10px 10px;
+  }
+}
+
+#distance .inputfield .btndiv a.disabled {
+  opacity: 0.4;
+}
+
+#loader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#form-msg .error {
+  color: #dc2727;
+  padding: 0 0;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  margin: 0 0 10px;
+}
+
+#myloader {
+  width: 100%;
+  float: left;
+  text-align: center;
+  display: none;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #3f51b5;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotate {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+/*# sourceMappingURL=custom.css.map */
+
+/*# sourceMappingURL=myplugin.css.map */
